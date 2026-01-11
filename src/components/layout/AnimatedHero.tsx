@@ -35,8 +35,8 @@ export const AnimatedHero = () => {
     }, []);
 
     return (
-        <section className="relative pt-32 pb-20 overflow-hidden bg-white">
-            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-20">
+        <section className="relative pt-24 lg:pt-32 pb-12 lg:pb-20 overflow-hidden bg-white">
+            <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 flex flex-col-reverse lg:flex-row items-center gap-8 lg:gap-20">
 
                 {/* Text Content - Left */}
                 <div className="flex-1 space-y-8 z-10 text-center lg:text-left">
@@ -79,29 +79,43 @@ export const AnimatedHero = () => {
                             </Button>
                         </Link>
                     </div>
-
-                    {/* Statistics removed per user request */}
                 </div>
 
-                {/* Image Content - Right (Clean Software Showcase) */}
-                <div className="flex-1 relative w-full max-w-2xl lg:max-w-none flex items-center justify-center">
-                    <div className="relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-500">
-                        {/* Full Image */}
-                        <Image
-                            key={activeTab}
-                            src={data.image}
-                            alt={activeTab === 'eye' ? "Eye Care Software" : "Dental Care Software"}
-                            fill
-                            className="object-cover animate-fade-in"
-                            priority
-                            sizes="(max-width: 768px) 100vw, 50vw"
-                        />
-                        {/* Overlay Gradient */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-blue-900/10 to-transparent pointer-events-none"></div>
+                {/* Image Content - Right (Robust CSS Mask) */}
+                <div className="flex-1 relative w-full max-w-[420px] lg:max-w-none aspect-square lg:aspect-auto h-auto lg:h-[650px] flex items-center justify-center mt-6 lg:mt-0 px-4">
+
+                    {/* Decorative Background Blobs */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[140%] h-[140%] pointer-events-none">
+                        <div className={`absolute top-0 right-0 w-64 h-64 lg:w-96 lg:h-96 rounded-full blur-3xl opacity-40 animate-blob transition-colors duration-1000 ${activeTab === 'eye' ? 'bg-blue-200' : 'bg-teal-200'}`}></div>
+                        <div className={`absolute bottom-0 left-0 w-64 h-64 lg:w-96 lg:h-96 rounded-full blur-3xl opacity-40 animate-blob animation-delay-2000 transition-colors duration-1000 ${activeTab === 'eye' ? 'bg-cyan-200' : 'bg-blue-200'}`}></div>
                     </div>
 
-                    {/* Decorative Background Elements */}
-                    <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-blue-50/50 rounded-full blur-3xl opacity-50"></div>
+                    {/* The Main Image with CSS Mask */}
+                    <div className="relative w-full max-w-[500px] aspect-square transition-transform duration-700 hover:scale-[1.02]">
+                        <div
+                            className="absolute inset-0 w-full h-full drop-shadow-2xl z-10"
+                            style={{
+                                maskImage: 'url("/diagonal-mask.svg")',
+                                maskSize: 'contain',
+                                maskPosition: 'center',
+                                maskRepeat: 'no-repeat',
+                                WebkitMaskImage: 'url("/diagonal-mask.svg")',
+                                WebkitMaskSize: 'contain',
+                                WebkitMaskPosition: 'center',
+                                WebkitMaskRepeat: 'no-repeat'
+                            }}
+                        >
+                            <Image
+                                key={activeTab}
+                                src={activeTab === 'eye' ? "/eye-surgery.png" : "/dental-surgery.png"}
+                                alt="Surgery Team"
+                                fill
+                                className="object-cover object-center brightness-105 animate-fade-in"
+                                sizes="(max-width: 768px) 100vw, 600px"
+                                priority
+                            />
+                        </div>
+                    </div>
                 </div>
 
             </div>

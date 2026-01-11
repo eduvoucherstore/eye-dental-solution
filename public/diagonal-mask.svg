@@ -1,0 +1,33 @@
+<svg viewBox="0 0 140 140" xmlns="http://www.w3.org/2000/svg">
+  <!-- Group rotated -45 degrees around center (70, 70) -->
+  <g transform="rotate(-45, 70, 70)">
+    
+    <!-- 
+       Final Safe Layout:
+       - Calculated safe limits to avoid clipping Y<0 or X>140.
+       - Row 1 Max U ~114. Set to 108 (w=80).
+       - Row 4 Max U ~139. Set to 124 (w=84).
+    -->
+
+    <!-- Row 1: Top Left - Floating -->
+    <!-- y=14. x=28. w=80. (Ends 108). Safe. -->
+    <rect x="28" y="14" width="80" height="26" rx="13" fill="white" />
+
+    <!-- Row 2: Main Long - Cut -->
+    <!-- y=43. x=-10. w=160. -->
+    <rect x="-10" y="43" width="160" height="26" rx="13" fill="white" />
+
+    <!-- Row 3: Split - Floating Edges -->
+    <!-- y=72. -->
+    <!-- Left: Starts 14. w=44. (Ends 58). -->
+    <rect x="14" y="72" width="44" height="26" rx="13" fill="white" />
+    
+    <!-- Right: Starts 62. w=68. (Ends 130). -->
+    <rect x="62" y="72" width="68" height="26" rx="13" fill="white" />
+
+    <!-- Row 4: Bottom Right - Floating -->
+    <!-- y=101. x=40. w=84. (Ends 124). Safe. -->
+    <rect x="40" y="101" width="84" height="26" rx="13" fill="white" />
+    
+  </g>
+</svg>

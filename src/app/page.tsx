@@ -7,27 +7,111 @@ import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { AnimatedHero } from "@/components/layout/AnimatedHero";
+import { motion } from "framer-motion";
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* 1. Animated Hero (Strict Blue/Sky) */}
+      {/* SECTION 1: Hero Section */}
       <AnimatedHero />
 
-      {/* 2. Platform Overview (Split Cards with Images) */}
-      {/* 2. Platform Overview - Redesigned Feature Sections */}
+      {/* SECTION 2: Why Choose Us / Benefits (Moved from bottom) */}
+      <Section className="bg-slate-50/50">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
+          <div className="text-center mb-16">
+            <span className="text-blue-600 font-bold tracking-wider uppercase text-xs mb-3 inline-block">Why Choose Us</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2">
+              Built for Modern Healthcare
+            </h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              Everything you need to run a successful practice
+            </p>
+          </div>
 
-      {/* Eye Care Section - Clean White with Soft Blue Vibe */}
-      <Section className="bg-white border-b border-slate-50 relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {[
+              {
+                title: "Built for African Healthcare",
+                icon: "🌍",
+                desc: "Workflows tailored specifically for African healthcare regulations and needs.",
+                image: "/african_healthcare_bg.png"
+              },
+              {
+                title: "Cloud-based & Secure",
+                icon: "🔒",
+                desc: "Bank-grade encryption keeps your patient data safe and accessible anywhere.",
+                image: "/cloud_security_bg.png"
+              },
+              {
+                title: "Works on Desktop, Tablet, Mobile",
+                icon: "📱",
+                desc: "Access your practice management system from any device.",
+                image: "/multi_device_bg.png"
+              },
+              {
+                title: "Easy Onboarding",
+                icon: "🚀",
+                desc: "Get your clinic up and running in days, not months. Simple migration.",
+                image: "/easy_onboarding_bg.png"
+              },
+              {
+                title: "Local Support",
+                icon: "🇬🇭",
+                desc: "Dedicated support team based in Ghana, available when you need them.",
+                image: "/local_support_bg.png"
+              },
+              {
+                title: "AI Powered",
+                icon: "✨",
+                desc: "Leverage modern AI for diagnostics, inventory prediction, and alerts.",
+                image: "/ai_healthcare_bg.png"
+              },
+            ].map((item, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.5, delay: i * 0.1 }}
+                className="group relative h-[350px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200"
+              >
+                <Image
+                  src={item.image}
+                  alt={item.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10 transition-colors duration-300 group-hover:bg-black/60" />
+
+                <div className="absolute bottom-0 left-0 p-8 w-full">
+                  <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl mb-4 border border-white/20 shadow-lg">
+                    {item.icon}
+                  </div>
+                  <h4 className="text-xl font-bold text-white mb-2 leading-tight">{item.title}</h4>
+                  <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{item.desc}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </Section>
+
+      {/* SECTION 3: Eye Care Service Section */}
+      <Section className="bg-white relative overflow-hidden">
         {/* Decorative Background Blobs */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-50/50 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-50/30 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
 
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10"
+        >
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
-
             {/* Text Content */}
             <div className="flex-1 space-y-8">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold border border-blue-100">
@@ -40,6 +124,7 @@ export default function Home() {
                 Our software takes the hassle out of managing your practice. From scheduling to billing, we've got you covered. Discover the difference for yourself.
               </p>
 
+              {/* Feature Highlights */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Featured Highlight Card */}
                 <div className="md:col-span-2 bg-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden group flex items-center gap-5">
@@ -104,20 +189,23 @@ export default function Home() {
                 <span className="text-xs font-bold text-slate-700">Practice Optimized</span>
               </div>
             </div>
-
           </div>
-        </div>
+        </motion.div>
       </Section>
 
-      {/* Dental Care Section - Soft Surface Color */}
-      {/* Dental Care Section - Rich Surface Vibe */}
+      {/* SECTION 4: Dental Care Service Section */}
       <Section className="bg-slate-50/80 relative overflow-hidden">
         {/* Decorative Background Blobs */}
         <div className="absolute top-1/2 left-0 w-[600px] h-[600px] bg-blue-100/40 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/4 pointer-events-none"></div>
 
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10">
-          <div className="flex flex-col-reverse lg:flex-row items-center gap-16 lg:gap-24">
-
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.8 }}
+          className="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10"
+        >
+          <div className="flex flex-col-reverse lg:flex-row items-center gap-12 lg:gap-24">
             {/* Image Content */}
             <div className="flex-1 relative w-full aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white group">
               <div className="absolute inset-0 bg-blue-900/10 group-hover:bg-transparent transition-colors duration-500 z-10"></div>
@@ -152,6 +240,7 @@ export default function Home() {
                 Enhance your dental care service with our comprehensive workflow solution covering patient record storage, dental charting, scheduling and billing in a user-friendly way.
               </p>
 
+              {/* Feature Highlights */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
                 {/* Featured Highlight Card */}
                 <div className="md:col-span-2 bg-blue-600 rounded-2xl p-6 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden group flex items-center gap-5">
@@ -196,42 +285,174 @@ export default function Home() {
                 </Link>
               </div>
             </div>
+          </div>
+        </motion.div>
+      </Section>
 
+      {/* SECTION 5: Care Tools That Are Innovative - Matching Inspiration */}
+      <Section className="bg-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            {/* Left: Text Content */}
+            <div>
+              <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-6">
+                Care Tools That Are Innovative
+              </h2>
+              <p className="text-slate-600 leading-relaxed mb-8">
+                Feel free to customize this paragraph to better fit your brand messaging, values, and specific offerings. Ensure that the language you use.
+              </p>
+
+              {/* Features with Checkmarks */}
+              <div className="space-y-6 mb-8">
+                {[
+                  {
+                    title: "Healthcare Facility",
+                    desc: "We're committed to leveraging the latest innovations in medical technology."
+                  },
+                  {
+                    title: "Medical Devices",
+                    desc: "Our patients with the highest standard of care. Our state-of-the-art facility is equipped."
+                  },
+                  {
+                    title: "Advanced Technologies",
+                    desc: "From advanced imaging technology such as MRI and CT scanners to precision surgical tools."
+                  },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-start gap-4">
+                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center shrink-0 mt-0.5">
+                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <div>
+                      <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
+                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link href="/contact">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 px-8 rounded-full">
+                  Learn More
+                </Button>
+              </Link>
+            </div>
+
+            {/* Right: Image or Visual Element */}
+            <div className="relative">
+              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <Image
+                  src="/positive.webp"
+                  alt="Innovative Healthcare Tools"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
           </div>
         </div>
       </Section>
 
-      {/* 3. Why Cloudify (Grid) */}
-      <Section className="bg-white">
-        <div className="max-w-6xl mx-auto">
+      {/* SECTION 6: How It Works - Step by Step */}
+      <Section className="bg-slate-50">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Why Choose Us</span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2">Built for Modern Healthcare</h2>
+            <span className="text-blue-600 font-bold tracking-wider uppercase text-xs mb-3 inline-block">Process</span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2">
+              Get Started in 3 Simple Steps
+            </h2>
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+              Setting up your practice management system is quick and straightforward
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {[
-              { title: "Built for African Healthcare", icon: "🌍", desc: "Workflows tailored specifically for African healthcare regulations and needs." },
-              { title: "Cloud-based & Secure", icon: "🔒", desc: "Bank-grade encryption keeps your patient data safe and accessible anywhere." },
-              { title: "Works on Desktop, Tablet, Mobile", icon: "📱", desc: "Access your practice management system from any device." },
-              { title: "Easy Onboarding", icon: "🚀", desc: "Get your clinic up and running in days, not months. Simple migration." },
-              { title: "Local Support", icon: "🇬🇭", desc: "Dedicated support team based in Ghana, available when you need them." },
-              { title: "AI Powered", icon: "✨", desc: "Leverage modern AI for diagnostics, inventory prediction, and alerts." },
-            ].map((item, i) => (
-              <div key={i} className="bg-white p-6 rounded-2xl border border-slate-100 hover:shadow-lg hover:border-blue-100 transition-all">
-                <div className="w-14 h-14 rounded-xl bg-blue-50 flex items-center justify-center text-2xl mb-4">
-                  {item.icon}
+              {
+                step: "1",
+                title: "Sign Up & Register",
+                desc: "Create your account and register your clinic in minutes. No credit card required.",
+                icon: "📝"
+              },
+              {
+                step: "2",
+                title: "Configure Your Practice",
+                desc: "Set up your staff, services, and workflows tailored to your practice needs.",
+                icon: "⚙️"
+              },
+              {
+                step: "3",
+                title: "Start Managing Patients",
+                desc: "Begin scheduling appointments, managing records, and running your practice efficiently.",
+                icon: "🚀"
+              },
+            ].map((item, idx) => (
+              <div key={idx} className="relative text-center">
+                <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center text-white text-3xl font-bold mx-auto mb-6 shadow-lg shadow-blue-500/20">
+                  {item.step}
                 </div>
-                <h4 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h4>
-                <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
+                <p className="text-slate-600 leading-relaxed">{item.desc}</p>
+                {idx !== 2 && (
+                  <div className="hidden md:block absolute top-10 left-full w-full h-0.5 bg-gradient-to-r from-blue-200 to-transparent -ml-1/2"></div>
+                )}
               </div>
             ))}
           </div>
         </div>
       </Section>
 
-      {/* 4. Social Proof */}
-      <div className="py-12 bg-slate-900 text-white overflow-hidden">
+      {/* SECTION 7: Work With a Variety of People / Trusted Professionals - Matching Inspiration */}
+      <Section className="bg-white">
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
+          <div className="mb-12">
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4">
+              Work With a Variety of People
+            </h2>
+            <p className="text-slate-600 leading-relaxed max-w-2xl">
+              We're a 100% remote team spread all across the world. Join us! Ensure that the language you use.
+            </p>
+          </div>
+
+          {/* Professional Profiles Grid */}
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+            {[
+              { name: "Dr. Sarah Mensah", specialty: "Ophthalmology", image: "/portrait-woman-working-healthcare-system-as-pediatrician.webp" },
+              { name: "Dr. Kwame Asante", specialty: "Optometry", image: "/positive.webp" },
+              { name: "Dr. Ama Osei", specialty: "Dentistry", image: "/portrait-african-american-nurse-using-laptop-white-desk.webp" },
+              { name: "Dr. Kofi Adjei", specialty: "Oral Surgery", image: "/positive.webp" },
+            ].map((profile, i) => (
+              <div key={i} className="text-center">
+                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+                  <Image
+                    src={profile.image}
+                    alt={profile.name}
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <h4 className="font-bold text-slate-900 mb-1">{profile.name}</h4>
+                <p className="text-sm text-slate-600">{profile.specialty}</p>
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center">
+            <Link href="/contact">
+              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 px-8 rounded-full">
+                View More
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Section>
+
+
+
+      {/* SECTION 9: Social Proof */}
+      <div className="py-16 bg-slate-900 text-white overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 text-center">
           <div className="flex items-center justify-center gap-3 mb-8">
             <span className="bg-red-600 px-4 py-1 rounded-full text-sm font-semibold">USED BY</span>
@@ -248,30 +469,8 @@ export default function Home() {
         </div>
       </div>
 
-      {/* 5. CTA Band */}
-      <section className="py-24 bg-blue-600 relative overflow-hidden">
-        {/* Soft overlay effects - no heavy gradients */}
-        <div className="absolute top-0 left-0 w-full h-full bg-blue-700/20"></div>
+      {/* SECTION 10: Final CTA */}
 
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 relative z-10 text-center text-white">
-          <h2 className="text-4xl md:text-5xl font-heading font-bold mb-6">Ready to modernize your clinic?</h2>
-          <p className="text-xl text-blue-100 max-w-2xl mx-auto mb-10">
-            Join the growing network of providers using Cloudify to deliver better care.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/contact">
-              <Button size="lg" className="bg-white text-blue-600 hover:bg-blue-50 shadow-xl border-none">
-                Get Started
-              </Button>
-            </Link>
-            <Link href="/contact">
-              <Button size="lg" variant="outline" className="border-blue-200 text-white hover:bg-blue-700/50 hover:border-blue-300">
-                Talk to Sales
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
       <Footer />
     </div>

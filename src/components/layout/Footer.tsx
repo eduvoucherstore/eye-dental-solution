@@ -57,12 +57,7 @@ export const Footer = () => {
                                     Dental Care Software
                                 </Link>
                             </li>
-                            <li>
-                                <Link href="/pricing" className="text-slate-400 hover:text-blue-400 font-medium transition-colors flex items-center gap-2">
-                                    <span className="w-1.5 h-1.5 bg-blue-500 rounded-full"></span>
-                                    Pricing Plans
-                                </Link>
-                            </li>
+
                         </ul>
                     </div>
 
