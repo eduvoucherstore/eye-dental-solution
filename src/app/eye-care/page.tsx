@@ -8,6 +8,8 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function EyeCarePage() {
+    const eyeCareSignupUrl = process.env.NEXT_PUBLIC_EYECARE_SIGNUP_URL ?? "/contact";
+
     return (
         <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
             <Navbar />
@@ -35,7 +37,7 @@ export default function EyeCarePage() {
                                     </Button>
                                 </Link>
                                 <Link href="#pricing">
-                                    <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:border-blue-600 hover:text-blue-600 px-8 h-12 text-base bg-transparent">
+                                    <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:text-blue-600 px-8 h-12 text-base bg-transparent">
                                         View Pricing
                                     </Button>
                                 </Link>
@@ -219,7 +221,11 @@ export default function EyeCarePage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button fullWidth variant="outline" className="border-slate-300 hover:border-blue-600 hover:text-blue-600">Get Started</Button>
+                            <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:text-blue-600">
+                                    Signup
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* STANDARD */}
@@ -239,7 +245,11 @@ export default function EyeCarePage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white">Get Standard</Button>
+                            <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
+                                <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white">
+                                    Signup
+                                </Button>
+                            </Link>
                         </div>
 
                         {/* ENTERPRISE */}
@@ -257,7 +267,11 @@ export default function EyeCarePage() {
                                     </li>
                                 ))}
                             </ul>
-                            <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white">Contact Sales</Button>
+                            <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white">
+                                    Signup
+                                </Button>
+                            </Link>
                         </div>
                     </div>
                 </div>
@@ -270,7 +284,7 @@ export default function EyeCarePage() {
                     <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">Join hundreds of eye care professionals who trust Cloudify.</p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-8">Start Free Trial</Button>
-                        <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:text-white hover:border-white">Contact Support</Button>
+                        <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:text-white">Contact Support</Button>
                     </div>
                 </div>
             </Section>

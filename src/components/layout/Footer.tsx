@@ -4,7 +4,7 @@ import { Button } from "../ui/Button";
 
 export const Footer = () => {
     return (
-        <footer className="bg-slate-900 text-white pt-20 pb-10">
+        <footer className="bg-slate-950 text-white pt-20 pb-10 border-t border-slate-800">
             <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-16">
                     {/* Brand & Newsletter */}

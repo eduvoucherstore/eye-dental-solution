@@ -1,0 +1,43 @@
+/**
+ * Brand Logos Constants
+ * All 36 brand logos from the eyes folder
+ */
+
+export const BRAND_LOGOS = [
+  "/eyes/dent1.jpeg",
+  "/eyes/dent2.jpeg",
+  "/eyes/eye10.jpeg",
+  "/eyes/eye11.jpeg",
+  "/eyes/eye12.jpeg",
+  "/eyes/eye13.jpeg",
+  "/eyes/eye14.jpeg",
+  "/eyes/eye15.jpeg",
+  "/eyes/eye16.jpeg",
+  "/eyes/eye17.jpeg",
+  "/eyes/eye19.jpeg",
+  "/eyes/eye2.jpeg",
+  "/eyes/eye20.jpeg",
+  "/eyes/eye21.jpeg",
+  "/eyes/eye22.jpeg",
+  "/eyes/eye23.jpeg",
+  "/eyes/eye24.jpeg",
+  "/eyes/eye25.jpeg",
+  "/eyes/eye26.jpeg",
+  "/eyes/eye27.jpeg",
+  "/eyes/eye28.jpeg",
+  "/eyes/eye29.jpeg",
+  "/eyes/eye3.jpeg",
+  "/eyes/eye30.jpeg",
+  "/eyes/eye31.jpeg",
+  "/eyes/eye32.jpeg",
+  "/eyes/eye33.jpeg",
+  "/eyes/eye4.jpeg",
+  "/eyes/eye5.jpeg",
+  "/eyes/eye6.jpeg",
+  "/eyes/eye7.jpeg",
+  "/eyes/eye8.jpeg",
+  "/eyes/eye9.jpeg",
+  "/eyes/eyes1.jpeg",
+  "/eyes/tooth2.jpeg",
+  "/eyes/tooth3.jpeg",
+] as const;
