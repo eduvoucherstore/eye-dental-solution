@@ -440,13 +440,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center">
-            <Link href="/contact">
-              <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 px-8 rounded-full">
-                View More
-              </Button>
-            </Link>
-          </div>
+          <div className="text-center" />
         </div>
       </Section>
 
@@ -454,12 +448,19 @@ export default function Home() {
 
       {/* SECTION 9: Social Proof */}
       <div className="bg-slate-900 text-white overflow-hidden">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-16 text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
-            <span className="bg-red-600 px-4 py-1 rounded-full text-sm font-semibold">USED BY</span>
-            <span className="text-2xl font-bold">30+ centers</span>
+        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-16">
+          <div className="max-w-3xl text-left">
+            <span className="inline-flex items-center bg-red-600/90 px-4 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wider">
+              USED BY
+            </span>
+            <p className="mt-4 text-4xl sm:text-5xl font-bold tracking-tight">30+ centers</p>
+            <p className="mt-3 text-slate-300 text-sm sm:text-base font-medium tracking-wide uppercase">
+              TRUSTED BY MEDICAL CENTERS ACROSS THE REGION
+            </p>
+            <div className="mt-6 flex items-center">
+              <span className="h-px w-24 bg-slate-700/80" />
+            </div>
           </div>
-          <p className="text-slate-400 font-medium mb-12">TRUSTED BY MEDICAL CENTERS ACROSS THE REGION</p>
         </div>
         
         {/* Horizontal Scrolling Logos */}
