@@ -64,7 +64,7 @@ export const AnimatedHero = () => {
                         <Link href={data.link} className="w-full sm:w-auto">
                             <Button
                                 size="lg"
-                                className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto"
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-8 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto"
                             >
                                 Explore {activeTab === 'eye' ? "Eye Care" : "Dental Care"}
                             </Button>
@@ -73,7 +73,7 @@ export const AnimatedHero = () => {
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 h-12 text-base font-medium rounded-full w-full sm:w-auto"
+                                className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 text-base font-medium rounded-full w-full sm:w-auto"
                             >
                                 Book a Demo
                             </Button>

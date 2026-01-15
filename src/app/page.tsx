@@ -8,6 +8,7 @@ import { Footer } from "@/components/layout/Footer";
 import { Section } from "@/components/ui/Section";
 import { AnimatedHero } from "@/components/layout/AnimatedHero";
 import { ScrollingLogos } from "@/components/ui/ScrollingLogos";
+import { AutoScrollCarousel } from "@/components/ui/AutoScrollCarousel";
 import { motion } from "framer-motion";
 
 export default function Home() {
@@ -33,7 +34,8 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 title: "Built for African Healthcare",
@@ -97,6 +99,71 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile Carousel */}
+          <div className="block md:hidden">
+            <AutoScrollCarousel>
+              {[
+                {
+                  title: "Built for African Healthcare",
+                  icon: "🌍",
+                  desc: "Workflows tailored specifically for African healthcare regulations and needs.",
+                  image: "/african_healthcare_bg.png"
+                },
+                {
+                  title: "Cloud-based & Secure",
+                  icon: "🔒",
+                  desc: "Bank-grade encryption keeps your patient data safe and accessible anywhere.",
+                  image: "/cloud_security_bg.png"
+                },
+                {
+                  title: "Works on Desktop, Tablet, Mobile",
+                  icon: "📱",
+                  desc: "Access your practice management system from any device.",
+                  image: "/multi_device_bg.png"
+                },
+                {
+                  title: "Easy Onboarding",
+                  icon: "🚀",
+                  desc: "Get your clinic up and running in days, not months. Simple migration.",
+                  image: "/easy_onboarding_bg.png"
+                },
+                {
+                  title: "Local Support",
+                  icon: "🇬🇭",
+                  desc: "Dedicated support team based in Ghana, available when you need them.",
+                  image: "/local_support_bg.png"
+                },
+                {
+                  title: "AI Powered",
+                  icon: "✨",
+                  desc: "Leverage modern AI for diagnostics, inventory prediction, and alerts.",
+                  image: "/ai_healthcare_bg.png"
+                },
+              ].map((item, i) => (
+                <div
+                  key={i}
+                  className="group relative h-[350px] rounded-3xl overflow-hidden shadow-lg border border-slate-200 w-full"
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    fill
+                    className="object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/10" />
+
+                  <div className="absolute bottom-0 left-0 p-8 w-full">
+                    <div className="w-12 h-12 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center text-2xl mb-4 border border-white/20 shadow-lg">
+                      {item.icon}
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2 leading-tight">{item.title}</h4>
+                    <p className="text-white/80 text-sm leading-relaxed line-clamp-3">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </AutoScrollCarousel>
           </div>
         </div>
       </Section>
@@ -472,12 +539,40 @@ export default function Home() {
             </div>
           </div>
         </div>
-        
+
         {/* Horizontal Scrolling Logos */}
         <ScrollingLogos />
       </div>
 
       {/* SECTION 10: Final CTA */}
+      <Section className="relative py-24 overflow-hidden">
+        <Image
+          src="/african_healthcare_bg.png"
+          alt="Healthcare Professional"
+          fill
+          className="object-cover"
+        />
+        <div className="absolute inset-0 bg-slate-900/90 z-0"></div>
+
+        <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
+          <span className="inline-flex items-center text-white font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
+            Get Started
+          </span>
+          <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 tracking-tight text-white leading-tight">
+            Ready to upgrade your practice?
+          </h2>
+          <p className="text-slate-300 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+            Join hundreds of medical centers who trust Cloudify to power their daily operations.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/contact" className="w-full sm:w-auto">
+              <Button size="lg" className="!bg-white hover:!bg-blue-50 !text-blue-900 border-none shadow-lg shadow-white/10 w-full sm:w-auto px-8 h-14 text-lg font-bold">
+                Contact Sales
+              </Button>
+            </Link>
+          </div>
+        </div>
+      </Section>
 
 
       <Footer />

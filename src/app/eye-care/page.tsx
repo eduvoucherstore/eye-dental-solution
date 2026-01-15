@@ -105,12 +105,12 @@ export default function EyeCarePage() {
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
                                 <Link href="/contact" className="w-full sm:w-auto">
-                                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-10 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
+                                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
                                         Get Started
                                     </Button>
                                 </Link>
                                 <Link href="#pricing" className="w-full sm:w-auto">
-                                    <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 h-10 text-base rounded-full w-full sm:w-auto">
+                                    <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 text-base rounded-full w-full sm:w-auto">
                                         View Pricing
                                     </Button>
                                 </Link>
@@ -221,7 +221,7 @@ export default function EyeCarePage() {
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth variant="outline" className="border-slate-300 hover:text-blue-600 px-8 h-10 text-base font-medium rounded-full">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:text-blue-600 px-8 text-base font-medium rounded-full">
                                     Signup
                                 </Button>
                             </Link>
@@ -271,7 +271,7 @@ export default function EyeCarePage() {
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-10 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full">
+                                <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white px-8 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full">
                                     Signup
                                 </Button>
                             </Link>
@@ -319,7 +319,7 @@ export default function EyeCarePage() {
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white hover:text-blue-600 px-8 h-10 text-base font-medium rounded-full">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white hover:text-blue-600 px-8 text-base font-medium rounded-full">
                                     Signup
                                 </Button>
                             </Link>
@@ -504,25 +504,29 @@ export default function EyeCarePage() {
             </Section>
 
             {/* --- CTA SECTION --- */}
-            <Section className="bg-slate-900 text-white relative overflow-hidden">
-                {/* Decorative Background Blobs */}
-                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
-                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
-                
-                <div className="max-w-4xl mx-auto text-center relative z-10">
-                    <span className="inline-flex items-center text-blue-400 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/30">
+            <Section className="relative py-24 overflow-hidden">
+                <Image
+                    src="/eye-surgery.png"
+                    alt="Eye Care Professional"
+                    fill
+                    className="object-cover"
+                />
+                <div className="absolute inset-0 bg-slate-900/90 z-0"></div>
+
+                <div className="max-w-4xl mx-auto text-center relative z-10 px-4">
+                    <span className="inline-flex items-center text-white font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-white/10 border border-white/20 backdrop-blur-md">
                         Get Started
                     </span>
-                    <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 tracking-tight">
+                    <h2 className="text-3xl md:text-5xl font-heading font-bold mb-6 tracking-tight text-white leading-tight">
                         Ready to upgrade your practice?
                     </h2>
-                    <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
-                        Join hundreds of eye care professionals who trust Cloudify.
+                    <p className="text-slate-300 text-base md:text-xl mb-10 max-w-2xl mx-auto leading-relaxed">
+                        Join hundreds of eye care professionals who trust Cloudify to power their daily operations.
                     </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                         <Link href="/contact" className="w-full sm:w-auto">
-                            <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 rounded-full w-full sm:w-auto">
-                                Contact Support
+                            <Button size="lg" className="!bg-white hover:!bg-blue-50 !text-blue-900 border-none shadow-lg shadow-white/10 w-full sm:w-auto px-8 h-14 text-lg font-bold">
+                                Contact Sales
                             </Button>
                         </Link>
                     </div>
