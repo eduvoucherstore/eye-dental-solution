@@ -97,7 +97,7 @@ export default function ContactPage() {
                                 <textarea className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all h-32 resize-none" placeholder="I'm interested in..." />
                             </div>
 
-                            <Button size="lg" fullWidth>Send Message</Button>
+                            <Button size="lg" fullWidth className="px-8 h-12 text-base font-medium rounded-full">Send Message</Button>
                         </form>
                     </div>
                 </div>

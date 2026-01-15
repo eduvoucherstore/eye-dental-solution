@@ -68,12 +68,6 @@ export const Footer = () => {
                             <li>
                                 <Link href="/about" className="text-slate-400 hover:text-blue-400 font-medium transition-colors">About Us</Link>
                             </li>
-                            <li>
-                                <Link href="/contact" className="text-slate-400 hover:text-blue-400 font-medium transition-colors">Contact Support</Link>
-                            </li>
-                            <li>
-                                <Link href="/blog" className="text-slate-400 hover:text-blue-400 font-medium transition-colors">Blog & Updates</Link>
-                            </li>
                         </ul>
                     </div>
 
@@ -106,8 +100,6 @@ export const Footer = () => {
                     <p>&copy; {new Date().getFullYear()} Cloudify Care. All rights reserved.</p>
                     <div className="flex gap-8">
                         <Link href="#" className="hover:text-blue-400 transition-colors">Privacy Policy</Link>
-                        <Link href="#" className="hover:text-blue-400 transition-colors">Terms of Service</Link>
-                        <Link href="#" className="hover:text-blue-400 transition-colors">Cookie Policy</Link>
                     </div>
                 </div>
             </div>

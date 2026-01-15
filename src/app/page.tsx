@@ -22,11 +22,13 @@ export default function Home() {
       <Section className="bg-slate-50/50">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-xs mb-3 inline-block">Why Choose Us</span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2">
+            <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+              Why Choose Us
+            </span>
+            <h2 className="text-4xl md:text-5xl font-heading font-bold text-slate-900 mt-4 tracking-tight">
               Built for Modern Healthcare
             </h2>
-            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto text-base md:text-lg">
               Everything you need to run a successful practice
             </p>
           </div>
@@ -114,14 +116,14 @@ export default function Home() {
         >
           <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
             {/* Text Content */}
-            <div className="flex-1 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold border border-blue-100">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold border border-blue-100 uppercase tracking-wider">
                 👁️ Cloudify Eye Care
               </div>
-              <h2 className="text-4xl lg:text-6xl font-heading font-bold text-slate-900 leading-tight">
+              <h2 className="text-4xl lg:text-6xl font-heading font-bold text-slate-900 leading-tight tracking-tight">
                 Eye Care <br /><span className="text-blue-600">Made Easy!</span>
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
                 Our software takes the hassle out of managing your practice. From scheduling to billing, we've got you covered. Discover the difference for yourself.
               </p>
 
@@ -163,8 +165,8 @@ export default function Home() {
               </div>
 
               <div className="pt-6">
-                <Link href="/eye-care">
-                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20 px-8 rounded-full h-12">
+                <Link href="/eye-care" className="w-full sm:w-auto inline-block">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
                     Discover Eye Care
                   </Button>
                 </Link>
@@ -230,14 +232,14 @@ export default function Home() {
             </div>
 
             {/* Text Content */}
-            <div className="flex-1 space-y-8">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold border border-blue-100">
+            <div className="flex-1 space-y-6">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold border border-blue-100 uppercase tracking-wider">
                 🦷 Cloudify Dental Care
               </div>
-              <h2 className="text-4xl lg:text-6xl font-heading font-bold text-slate-900 leading-tight">
+              <h2 className="text-4xl lg:text-6xl font-heading font-bold text-slate-900 leading-tight tracking-tight">
                 Dental Care <br /><span className="text-blue-600">Software</span>
               </h2>
-              <p className="text-xl text-slate-600 leading-relaxed font-medium">
+              <p className="text-lg md:text-xl text-slate-600 leading-relaxed font-medium max-w-xl">
                 Enhance your dental care service with our comprehensive workflow solution covering patient record storage, dental charting, scheduling and billing in a user-friendly way.
               </p>
 
@@ -279,8 +281,8 @@ export default function Home() {
               </div>
 
               <div className="pt-6">
-                <Link href="/dental-care">
-                  <Button size="lg" className="bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-500/20 px-8 rounded-full h-12">
+                <Link href="/dental-care" className="w-full sm:w-auto inline-block">
+                  <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
                     Explore Dental Solutions
                   </Button>
                 </Link>
@@ -296,10 +298,13 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left: Text Content */}
             <div>
-              <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-6">
+              <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+                Innovative Care
+              </span>
+              <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4 tracking-tight">
                 Care Tools That Are Innovative
               </h2>
-              <p className="text-slate-600 leading-relaxed mb-8">
+              <p className="text-slate-600 leading-relaxed mb-8 text-base md:text-lg max-w-xl">
                 Feel free to customize this paragraph to better fit your brand messaging, values, and specific offerings. Ensure that the language you use.
               </p>
 
@@ -333,8 +338,8 @@ export default function Home() {
                 ))}
               </div>
 
-              <Link href="/contact">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 px-8 rounded-full">
+              <Link href="/contact" className="w-full sm:w-auto inline-block">
+                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
                   Learn More
                 </Button>
               </Link>
@@ -359,11 +364,13 @@ export default function Home() {
       <Section className="bg-slate-50">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
           <div className="text-center mb-16">
-            <span className="text-blue-600 font-bold tracking-wider uppercase text-xs mb-3 inline-block">Process</span>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2">
+            <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+              Process
+            </span>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2 tracking-tight">
               Get Started in 3 Simple Steps
             </h2>
-            <p className="text-slate-600 mt-4 max-w-2xl mx-auto">
+            <p className="text-slate-600 mt-4 max-w-2xl mx-auto text-base md:text-lg">
               Setting up your practice management system is quick and straightforward
             </p>
           </div>
@@ -409,10 +416,13 @@ export default function Home() {
       <Section className="bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
           <div className="mb-12">
-            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4">
+            <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+              Our Community
+            </span>
+            <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4 tracking-tight">
               Work With a Variety of People
             </h2>
-            <p className="text-slate-600 leading-relaxed max-w-2xl">
+            <p className="text-slate-600 leading-relaxed max-w-2xl text-base md:text-lg">
               We're a 100% remote team spread all across the world. Join us! Ensure that the language you use.
             </p>
           </div>
@@ -440,7 +450,7 @@ export default function Home() {
             ))}
           </div>
 
-          <div className="text-center" />
+          <div className="hidden" />
         </div>
       </Section>
 
@@ -449,7 +459,7 @@ export default function Home() {
       {/* SECTION 9: Social Proof */}
       <div className="bg-slate-900 text-white overflow-hidden">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6 py-16">
-          <div className="max-w-3xl text-left">
+          <div>
             <span className="inline-flex items-center bg-red-600/90 px-4 py-1 rounded-full text-xs sm:text-sm font-semibold tracking-wider">
               USED BY
             </span>

@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/Button";
 const content = {
     eye: {
         title: "Eye Care",
-        titleSuffix: "Made Easy!",
+        titleSuffix: "Software",
         subtitle: "Our software takes the hassle out of managing your practice. From scheduling to billing, we've got you covered. Discover the difference for yourself.",
         image: "/eye-care-dashboard.png",
         link: "/eye-care",
@@ -46,7 +46,7 @@ export const AnimatedHero = () => {
                             className="text-5xl lg:text-6xl font-heading font-bold text-slate-900 mb-6 leading-tight animate-fade-in-up"
                         >
                             {activeTab === 'eye' ? (
-                                <>Eye Care <br /><span className="text-blue-600">Made Easy!</span></>
+                                <>Eye Care <br /><span className="text-blue-600">Software</span></>
                             ) : (
                                 <>Dental Care <br /><span className="text-blue-600">Software</span></>
                             )}
@@ -61,19 +61,19 @@ export const AnimatedHero = () => {
                     </p>
 
                     <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                        <Link href={data.link}>
+                        <Link href={data.link} className="w-full sm:w-auto">
                             <Button
                                 size="lg"
-                                className="bg-blue-600 hover:bg-blue-700 text-white border-none shadow-lg shadow-blue-500/20"
+                                className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto"
                             >
                                 Explore {activeTab === 'eye' ? "Eye Care" : "Dental Care"}
                             </Button>
                         </Link>
-                        <Link href="/contact">
+                        <Link href="/contact" className="w-full sm:w-auto">
                             <Button
                                 size="lg"
                                 variant="outline"
-                                className="border-blue-200 text-blue-600 hover:bg-blue-50"
+                                className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 h-12 text-base font-medium rounded-full w-full sm:w-auto"
                             >
                                 Book a Demo
                             </Button>

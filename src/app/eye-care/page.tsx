@@ -7,6 +7,79 @@ import { Section } from "@/components/ui/Section";
 import Link from "next/link";
 import Image from "next/image";
 
+const pricingIcons = {
+    badge: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9 12l2 2 4-4m7 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+    ),
+    billing: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 10h18M7 15h1m4 0h1m-7 4h12a3 3 0 003-3V8a3 3 0 00-3-3H6a3 3 0 00-3 3v8a3 3 0 003 3z" />
+        </svg>
+    ),
+    calendar: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+        </svg>
+    ),
+    chart: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M11 3v18m4-14v14m4-10v10M7 7v14M3 11v10h18" />
+        </svg>
+    ),
+    cloud: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 15a4 4 0 014-4h1a5 5 0 0110 0h1a3 3 0 010 6H7a4 4 0 01-4-4z" />
+        </svg>
+    ),
+    heart: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4.318 6.318a4.5 4.5 0 016.364 0L12 7.636l1.318-1.318a4.5 4.5 0 116.364 6.364L12 21.682l-7.682-7.682a4.5 4.5 0 010-6.364z" />
+        </svg>
+    ),
+    inventory: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+        </svg>
+    ),
+    lock: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 6V4m0 2a4 4 0 014 4v1h2a2 2 0 012 2v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+        </svg>
+    ),
+    puzzle: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 3a2 2 0 012 2v1h1a2 2 0 012 2v2h-1a2 2 0 000 4h1v2a2 2 0 01-2 2h-1v1a2 2 0 01-4 0v-1H9a2 2 0 01-2-2v-2h1a2 2 0 000-4H7V8a2 2 0 012-2h1V5a2 2 0 012-2z" />
+        </svg>
+    ),
+    sliders: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M3 6h10M3 18h6M13 6h8M9 18h12M9 6v6m0 6v-6" />
+        </svg>
+    ),
+    sparkles: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M5 3l1.5 3L9 7.5 6.5 9 5 12 3.5 9 1 7.5 3.5 6 5 3zm13 5l1.5 3L22 12.5 19.5 14 18 17 16.5 14 14 12.5 16.5 11 18 8zm-6 4l2 4 4 2-4 2-2 4-2-4-4-2 4-2 2-4z" />
+        </svg>
+    ),
+    support: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M18 10a6 6 0 10-12 0v4a2 2 0 002 2h2m4 0h2a2 2 0 002-2v-4zM9 16v1a3 3 0 003 3h1" />
+        </svg>
+    ),
+    tag: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M7 7h.01M3 11l8-8h6l4 4v6l-8 8L3 11z" />
+        </svg>
+    ),
+    users: (
+        <svg className="h-4 w-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+        </svg>
+    ),
+} as const;
+
 export default function EyeCarePage() {
     const eyeCareSignupUrl = process.env.NEXT_PUBLIC_EYECARE_SIGNUP_URL ?? "/contact";
 
@@ -15,29 +88,29 @@ export default function EyeCarePage() {
             <Navbar />
 
             {/* --- HERO SECTION --- */}
-            <div className="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white border-b border-slate-200">
+            <div className="pt-32 pb-20 lg:pt-48 lg:pb-32 bg-white">
                 <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
                     <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
                         <div className="flex-1 text-center lg:text-left space-y-6">
-                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-sm font-semibold border border-blue-100">
+                            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-semibold border border-blue-100 uppercase tracking-wider">
                                 <span className="w-2 h-2 rounded-full bg-blue-600"></span>
                                 Cloudify Eye Care
                             </div>
-                            <h1 className="text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 leading-tight">
-                                Integrated Software for <br />
-                                <span className="text-blue-600">Modern Optometry.</span>
+                            <h1 className="text-5xl lg:text-6xl font-heading font-bold tracking-tight text-slate-900 leading-tight">
+                                Eye Care <br />
+                                <span className="text-blue-600">Software</span>
                             </h1>
-                            <p className="text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                                Streamline your clinic's entire workflow. From patient registration to billing and inventory, managing your eye care practice has never been simpler.
+                            <p className="text-lg md:text-xl text-slate-600 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                                Our software takes the hassle out of managing your practice. From scheduling to billing, we've got you covered. Discover the difference for yourself.
                             </p>
                             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
-                                <Link href="/contact">
-                                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-sm">
+                                <Link href="/contact" className="w-full sm:w-auto">
+                                    <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-10 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
                                         Get Started
                                     </Button>
                                 </Link>
-                                <Link href="#pricing">
-                                    <Button size="lg" variant="outline" className="border-slate-300 text-slate-700 hover:text-blue-600 px-8 h-12 text-base bg-transparent">
+                                <Link href="#pricing" className="w-full sm:w-auto">
+                                    <Button size="lg" variant="outline" className="border-blue-200 text-blue-600 hover:bg-blue-50 px-8 h-10 text-base rounded-full w-full sm:w-auto">
                                         View Pricing
                                     </Button>
                                 </Link>
@@ -89,140 +162,66 @@ export default function EyeCarePage() {
                 </div>
             </div>
 
-            {/* --- FEATURES GRID (Clean) --- */}
-            <Section className="bg-slate-50 py-24">
-                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
-                    <div className="text-center max-w-3xl mx-auto mb-16">
-                        <h2 className="text-3xl font-bold text-slate-900 mb-4">Complete Practice Management</h2>
-                        <p className="text-slate-600 text-lg">Everything you need to run an efficient, patient-focused optical clinic.</p>
-                    </div>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 lg:grid-rows-2 gap-6">
-
-                        {/* 1. Feature: AI Assist (Highlighted - Blue) */}
-                        <div className="lg:col-span-2 lg:row-span-2 bg-blue-600 rounded-2xl p-8 shadow-xl flex flex-col justify-between relative overflow-hidden group">
-                            {/* Background Pattern */}
-                            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -mr-16 -mt-16 pointer-events-none"></div>
-
-                            <div className="relative z-10">
-                                <div className="w-14 h-14 bg-white/10 backdrop-blur-sm rounded-xl flex items-center justify-center mb-6 text-white border border-white/20">
-                                    <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                    </svg>
-                                </div>
-                                <h3 className="text-2xl font-bold text-white mb-3">AI Diagnostic Assist</h3>
-                                <p className="text-blue-100 leading-relaxed text-lg">
-                                    Our intelligent system analyzes patient history and exam data to suggest potential diagnoses, serving as a reliable second opinion.
-                                </p>
-                            </div>
-
-                            {/* "Analysis" Widget */}
-                            <div className="mt-8 p-4 bg-white/10 backdrop-blur-md rounded-xl border border-white/10 relative z-10">
-                                <div className="flex items-center gap-3 mb-3">
-                                    <div className="w-2.5 h-2.5 rounded-full bg-green-400 shadow-[0_0_8px_rgba(74,222,128,0.5)]" />
-                                    <span className="text-xs font-semibold uppercase tracking-wider text-blue-200">Analysis Complete</span>
-                                </div>
-                                <div className="flex items-center justify-between text-xs text-white/80 mb-2">
-                                    <span>Confidence Score</span>
-                                    <span>98%</span>
-                                </div>
-                                <div className="h-1.5 w-full bg-blue-900/30 rounded-full overflow-hidden">
-                                    <div className="h-full bg-green-400 w-[98%]" />
-                                </div>
-                            </div>
-                        </div>
-
-                        {/* 2. Sales */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">Sales & Payments</h3>
-                            <p className="text-slate-500 text-sm">Seamless invoicing and revenue tracking.</p>
-                        </div>
-
-                        {/* 3. Alerts */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">Smart Reminders</h3>
-                            <p className="text-slate-500 text-sm">Automated SMS for appointments & birthdays.</p>
-                        </div>
-
-                        {/* 4. Remote Consult (Returned to White to prioritize AI Card as primary) */}
-                        <div className="lg:col-span-2 bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex items-center gap-6">
-                            <div className="shrink-0 w-16 h-16 bg-blue-50 text-blue-600 rounded-2xl flex items-center justify-center">
-                                <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-xl font-bold text-slate-900 mb-2">Remote Consultation</h3>
-                                <p className="text-slate-600 text-sm max-w-sm">Connect with patients digitally. Review scans, advise on treatments, and manage prescriptions remotely.</p>
-                            </div>
-                        </div>
-
-                        {/* 5. Inventory */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">Inventory</h3>
-                            <p className="text-slate-500 text-sm">Track frames, lenses, and stock levels.</p>
-                        </div>
-
-                        {/* 6. Image Vault */}
-                        <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm hover:shadow-md transition-all group">
-                            <div className="w-12 h-12 bg-blue-50 text-blue-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-105 transition-transform">
-                                <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                                </svg>
-                            </div>
-                            <h3 className="text-lg font-bold text-slate-900 mb-2">Image Vault</h3>
-                            <p className="text-slate-500 text-sm">Secure storage for scans & retinal images.</p>
-                        </div>
-
-                    </div>
-                </div>
-            </Section>
-
             {/* --- PRICING SECTION (Clean) --- */}
-            <Section id="pricing" className="bg-white py-24 border-t border-slate-200">
+            <Section id="pricing" className="bg-slate-50/50 py-24">
                 <div className="max-w-screen-xl mx-auto px-4 sm:px-6">
                     <div className="text-center mb-16">
-                        <span className="text-blue-600 font-bold tracking-wider uppercase text-sm">Transparent Pricing</span>
-                        <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mt-2 mb-4">Simple Plans for Growth</h2>
-                        <p className="text-slate-600 max-w-2xl mx-auto">
+                        <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+                            Pricing
+                        </span>
+                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mt-2 mb-4 tracking-tight">
+                            Simple Plans for Growth
+                        </h2>
+                        <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
                             Choose the package that fits your clinic. No hidden fees.
                         </p>
                     </div>
 
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                         {/* STARTER */}
-                        <div className="bg-white rounded-2xl p-8 border border-slate-200 flex flex-col">
-                            <h3 className="text-lg font-bold text-slate-900">Starter Clinic</h3>
-                            <p className="text-slate-500 text-sm mt-1 mb-6">For small clinics & startups</p>
-                            <div className="flex items-baseline gap-1 mb-6">
-                                <span className="text-3xl font-bold text-slate-900">GHS 250</span>
-                                <span className="text-slate-500">/mo</span>
+                        <div className="bg-white rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col">
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-blue-50 text-blue-600">
+                                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 6V4m0 2a4 4 0 014 4v1h2a2 2 0 012 2v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs uppercase tracking-wider text-blue-600 font-semibold">Starter</p>
+                                        <h3 className="text-xl font-heading font-bold text-slate-900">Starter Clinic</h3>
+                                        <p className="text-slate-500 text-sm">For small clinics & startups</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-end gap-2">
+                                    <span className="text-4xl font-bold text-slate-900">GHS 250</span>
+                                    <span className="text-slate-500 text-base">/mo</span>
+                                </div>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Best for</p>
+                                    <p className="text-slate-600 text-sm">Solo practitioners and small teams.</p>
+                                </div>
+                                <div className="h-px bg-slate-200" />
                             </div>
-                            <ul className="space-y-3 mb-8 flex-1">
-                                {["Patient Registration", "Basic EMR & Vitals", "Appointment Scheduling", "Inventory Mgmt", "Billing & Invoicing", "1-3 User Accounts"].map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
-                                        <svg className="w-5 h-5 text-blue-500 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                        {feat}
+                            <ul className="space-y-3 mt-6 mb-8 flex-1">
+                                {[
+                                    { label: "Patient Registration", icon: pricingIcons.badge },
+                                    { label: "Basic EMR & Vitals", icon: pricingIcons.heart },
+                                    { label: "Appointment Scheduling", icon: pricingIcons.calendar },
+                                    { label: "Inventory Mgmt", icon: pricingIcons.inventory },
+                                    { label: "Billing & Invoicing", icon: pricingIcons.billing },
+                                    { label: "1-3 User Accounts", icon: pricingIcons.users },
+                                ].map((feat, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-slate-600 text-sm leading-relaxed">
+                                        <span className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-blue-50 text-blue-600 shrink-0">
+                                            {feat.icon}
+                                        </span>
+                                        {feat.label}
                                     </li>
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth variant="outline" className="border-slate-300 hover:text-blue-600">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:text-blue-600 px-8 h-10 text-base font-medium rounded-full">
                                     Signup
                                 </Button>
                             </Link>
@@ -230,45 +229,97 @@ export default function EyeCarePage() {
 
                         {/* STANDARD */}
                         <div className="bg-white rounded-2xl p-8 border-2 border-blue-600 shadow-xl flex flex-col relative">
-                            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">POPULAR</div>
-                            <h3 className="text-lg font-bold text-slate-900">Standard Clinic</h3>
-                            <p className="text-slate-500 text-sm mt-1 mb-6">For growing practices</p>
-                            <div className="flex items-baseline gap-1 mb-6">
-                                <span className="text-3xl font-bold text-slate-900">GHS 350</span>
-                                <span className="text-slate-500">/mo</span>
+                            <div className="absolute top-0 right-0 bg-blue-600 text-white text-xs font-bold px-4 py-1.5 rounded-bl-xl tracking-wider">POPULAR</div>
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-blue-600 text-white">
+                                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M12 6V4m0 2a4 4 0 014 4v1h2a2 2 0 012 2v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5a2 2 0 012-2h2v-1a4 4 0 014-4z" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs uppercase tracking-wider text-blue-600 font-semibold">Standard</p>
+                                        <h3 className="text-xl font-heading font-bold text-slate-900">Standard Clinic</h3>
+                                        <p className="text-slate-500 text-sm">For growing practices</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-end gap-2">
+                                    <span className="text-4xl font-bold text-slate-900">GHS 350</span>
+                                    <span className="text-slate-500 text-base">/mo</span>
+                                </div>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Best for</p>
+                                    <p className="text-slate-600 text-sm">Multi-doctor clinics scaling fast.</p>
+                                </div>
+                                <div className="h-px bg-slate-200" />
                             </div>
-                            <ul className="space-y-3 mb-8 flex-1">
-                                {["Everything in Starter", "Advanced EMR Workflows", "1-10 User Accounts", "Dedicated Manager", "Priority Support", "AI Tools"].map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-slate-700 text-sm font-medium">
-                                        <svg className="w-5 h-5 text-blue-600 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                        {feat}
+                            <ul className="space-y-3 mt-6 mb-8 flex-1">
+                                {[
+                                    { label: "Everything in Starter", icon: pricingIcons.badge },
+                                    { label: "Advanced EMR Workflows", icon: pricingIcons.sliders },
+                                    { label: "1-10 User Accounts", icon: pricingIcons.users },
+                                    { label: "Dedicated Manager", icon: pricingIcons.support },
+                                    { label: "Priority Support", icon: pricingIcons.support },
+                                    { label: "AI Tools", icon: pricingIcons.sparkles },
+                                ].map((feat, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-slate-700 text-sm font-medium leading-relaxed">
+                                        <span className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-blue-50 text-blue-600 shrink-0">
+                                            {feat.icon}
+                                        </span>
+                                        {feat.label}
                                     </li>
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white">
+                                <Button fullWidth className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-10 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full">
                                     Signup
                                 </Button>
                             </Link>
                         </div>
 
                         {/* ENTERPRISE */}
-                        <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 flex flex-col">
-                            <h3 className="text-lg font-bold text-slate-900">Enterprise</h3>
-                            <p className="text-slate-500 text-sm mt-1 mb-6">Hospitals & Chains</p>
-                            <div className="flex items-baseline gap-1 mb-6">
-                                <span className="text-3xl font-bold text-slate-900">Custom</span>
+                        <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 shadow-sm hover:shadow-md transition-all flex flex-col">
+                            <div className="space-y-4">
+                                <div className="flex items-start gap-3">
+                                    <div className="mt-0.5 flex h-9 w-9 items-center justify-center rounded-full bg-slate-200 text-slate-700">
+                                        <svg className="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M4 8h16M6 4h12a2 2 0 012 2v14H4V6a2 2 0 012-2zM9 12h6m-6 4h6" />
+                                        </svg>
+                                    </div>
+                                    <div>
+                                        <p className="text-xs uppercase tracking-wider text-slate-600 font-semibold">Enterprise</p>
+                                        <h3 className="text-xl font-heading font-bold text-slate-900">Enterprise</h3>
+                                        <p className="text-slate-500 text-sm">Hospitals & Chains</p>
+                                    </div>
+                                </div>
+                                <div className="flex items-end gap-2">
+                                    <span className="text-4xl font-bold text-slate-900">Custom</span>
+                                </div>
+                                <div>
+                                    <p className="text-xs uppercase tracking-wider text-slate-400 font-semibold">Best for</p>
+                                    <p className="text-slate-600 text-sm">Large groups with complex workflows.</p>
+                                </div>
+                                <div className="h-px bg-slate-200" />
                             </div>
-                            <ul className="space-y-3 mb-8 flex-1">
-                                {["Unlimited Users", "Multi-branch Analytics", "Advanced Automation", "Custom Integrations", "White-labeling", "SLA Support"].map((feat, i) => (
-                                    <li key={i} className="flex items-start gap-3 text-slate-600 text-sm">
-                                        <svg className="w-5 h-5 text-slate-400 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                                        {feat}
+                            <ul className="space-y-3 mt-6 mb-8 flex-1">
+                                {[
+                                    { label: "Unlimited Users", icon: pricingIcons.users },
+                                    { label: "Multi-branch Analytics", icon: pricingIcons.chart },
+                                    { label: "Advanced Automation", icon: pricingIcons.sparkles },
+                                    { label: "Custom Integrations", icon: pricingIcons.puzzle },
+                                    { label: "White-labeling", icon: pricingIcons.tag },
+                                    { label: "SLA Support", icon: pricingIcons.lock },
+                                ].map((feat, i) => (
+                                    <li key={i} className="flex items-start gap-3 text-slate-600 text-sm leading-relaxed">
+                                        <span className="mt-0.5 flex h-6 w-6 items-center justify-center rounded-full bg-white text-slate-500 shrink-0">
+                                            {feat.icon}
+                                        </span>
+                                        {feat.label}
                                     </li>
                                 ))}
                             </ul>
                             <Link href={eyeCareSignupUrl} target="_blank" rel="noreferrer">
-                                <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white">
+                                <Button fullWidth variant="outline" className="border-slate-300 hover:bg-white hover:text-blue-600 px-8 h-10 text-base font-medium rounded-full">
                                     Signup
                                 </Button>
                             </Link>
@@ -277,14 +328,203 @@ export default function EyeCarePage() {
                 </div>
             </Section>
 
+            {/* --- BENEFITS GRID (From Flyer) --- */}
+            <Section className="bg-white py-24">
+                <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
+                    <div className="text-center max-w-3xl mx-auto mb-16">
+                        <div className="inline-flex items-center gap-2 text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
+                            <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                                <path fillRule="evenodd" d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z" clipRule="evenodd" />
+                            </svg>
+                            Benefits
+                        </div>
+                        <h2 className="text-3xl md:text-4xl font-heading font-bold text-slate-900 mb-4 tracking-tight">
+                            Everything You Need
+                        </h2>
+                        <p className="text-slate-600 text-base md:text-lg max-w-2xl mx-auto">
+                            Comprehensive features designed to streamline your eye care practice.
+                        </p>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                        {/* 1. Sales, Invoices & Payments */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Sales, Invoices & Payments</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Streamlined billing and payment processing.</p>
+                            </div>
+                        </div>
+
+                        {/* 2. Appointment & Birthday Alerts */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Appointment & Birthday Alerts</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Automated reminders for appointments and special occasions.</p>
+                            </div>
+                        </div>
+
+                        {/* 3. Remote Bill Collection */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Remote Bill Collection</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Collect payments remotely with ease.</p>
+                            </div>
+                        </div>
+
+                        {/* 4. Doctor-Patient Consult */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Doctor-Patient Consult</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Facilitate seamless consultations between doctors and patients.</p>
+                            </div>
+                        </div>
+
+                        {/* 5. Reports & Expenses */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Reports & Expenses</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Comprehensive financial reporting and expense tracking.</p>
+                            </div>
+                        </div>
+
+                        {/* 6. Inventory Management */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Inventory Management</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Track and manage your clinic's inventory efficiently.</p>
+                            </div>
+                        </div>
+
+                        {/* 7. Image Vault */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">Image Vault</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Secure storage for patient scans and retinal images.</p>
+                            </div>
+                        </div>
+
+                        {/* 8. AI Assist */}
+                        <div className="group relative h-[280px] rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-slate-200 bg-slate-800">
+                            <div className="absolute inset-0 flex items-center justify-center opacity-10 group-hover:opacity-20 transition-opacity">
+                                <svg className="w-32 h-32 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                </svg>
+                            </div>
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/20 to-black/5 transition-colors duration-300 group-hover:bg-black/30"></div>
+                            <div className="absolute bottom-0 left-0 p-8 w-full">
+                                <div className="w-12 h-10 bg-white/20 backdrop-blur-md rounded-2xl flex items-center justify-center mb-4 border border-white/20 shadow-lg">
+                                    <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.75} d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                    </svg>
+                                </div>
+                                <h3 className="text-xl font-bold text-white mb-2 leading-tight">AI Assist</h3>
+                                <p className="text-white/80 text-sm leading-relaxed line-clamp-3">Intelligent assistance for diagnostics and decision-making.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </Section>
+
             {/* --- CTA SECTION --- */}
-            <Section className="bg-slate-900 text-white">
-                <div className="max-w-4xl mx-auto text-center">
-                    <h2 className="text-3xl font-bold mb-6">Ready to upgrade your practice?</h2>
-                    <p className="text-slate-300 text-lg mb-8 max-w-2xl mx-auto">Join hundreds of eye care professionals who trust Cloudify.</p>
+            <Section className="bg-slate-900 text-white relative overflow-hidden">
+                {/* Decorative Background Blobs */}
+                <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2 pointer-events-none"></div>
+                <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-blue-600/10 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2 pointer-events-none"></div>
+                
+                <div className="max-w-4xl mx-auto text-center relative z-10">
+                    <span className="inline-flex items-center text-blue-400 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-600/20 border border-blue-500/30">
+                        Get Started
+                    </span>
+                    <h2 className="text-3xl md:text-4xl font-heading font-bold mb-6 tracking-tight">
+                        Ready to upgrade your practice?
+                    </h2>
+                    <p className="text-slate-300 text-base md:text-lg mb-8 max-w-2xl mx-auto">
+                        Join hundreds of eye care professionals who trust Cloudify.
+                    </p>
                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                        <Button size="lg" className="bg-blue-600 hover:bg-blue-500 text-white px-8">Start Free Trial</Button>
-                        <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:text-white">Contact Support</Button>
+                        <Link href="/contact" className="w-full sm:w-auto">
+                            <Button size="lg" variant="outline" className="border-slate-600 text-slate-300 hover:text-white hover:border-slate-500 rounded-full w-full sm:w-auto">
+                                Contact Support
+                            </Button>
+                        </Link>
                     </div>
                 </div>
             </Section>
