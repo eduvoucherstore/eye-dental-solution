@@ -1,5 +1,7 @@
 "use client";
 
+import { useState } from "react";
+
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
@@ -67,38 +69,10 @@ export default function ContactPage() {
                         </div>
                     </div>
 
-                    {/* Form */}
+
                     <div className="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
                         <h3 className="text-2xl font-bold text-foreground mb-6">Send us a message</h3>
-                        <form className="space-y-6">
-                            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-foreground">First Name</label>
-                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="John" />
-                                </div>
-                                <div className="space-y-2">
-                                    <label className="text-sm font-medium text-foreground">Last Name</label>
-                                    <input type="text" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="Doe" />
-                                </div>
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-foreground">Email Address</label>
-                                <input type="email" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="john@example.com" />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-foreground">Phone Number</label>
-                                <input type="tel" className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all" placeholder="+233..." />
-                            </div>
-
-                            <div className="space-y-2">
-                                <label className="text-sm font-medium text-foreground">Message</label>
-                                <textarea className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all h-32 resize-none" placeholder="I'm interested in..." />
-                            </div>
-
-                            <Button size="lg" fullWidth className="px-8 h-12 text-base font-medium rounded-full">Send Message</Button>
-                        </form>
+                        <ContactForm />
                     </div>
                 </div>
             </Section>
@@ -106,3 +80,111 @@ export default function ContactPage() {
         </div>
     );
 }
+
+
+function ContactForm() {
+    const [formData, setFormData] = useState({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        message: ""
+    });
+
+    function handleSubmit(e: React.FormEvent) {
+        e.preventDefault();
+
+        const subject = `New Contact from ${formData.firstName} ${formData.lastName}`;
+
+        // Construct body with proper encoding for new lines
+        const body = `new Contact Request
+------------------------------------------------
+Name: ${formData.firstName} ${formData.lastName}
+Email: ${formData.email}
+Phone: ${formData.phone}
+
+Message:
+${formData.message}
+------------------------------------------------`;
+
+        // Use encodeURIComponent which encodes newlines as %0A. 
+        // Some clients might prefer %0D%0A, so we ensure standard behavior.
+        const mailtoLink = `mailto:richmond@cloudifyhub.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+        // Open in a new tab to prevent the current page from reloading
+        window.open(mailtoLink, '_blank');
+    }
+
+    return (
+        <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">First Name *</label>
+                    <input
+                        type="text"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                        placeholder="John"
+                        value={formData.firstName}
+                        onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+                    />
+                </div>
+                <div className="space-y-2">
+                    <label className="text-sm font-medium text-foreground">Last Name *</label>
+                    <input
+                        type="text"
+                        required
+                        className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                        placeholder="Doe"
+                        value={formData.lastName}
+                        onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
+                    />
+                </div>
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Email Address *</label>
+                <input
+                    type="email"
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    placeholder="john@example.com"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                />
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Phone Number</label>
+                <input
+                    type="tel"
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all"
+                    placeholder="+233..."
+                    value={formData.phone}
+                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                />
+            </div>
+
+            <div className="space-y-2">
+                <label className="text-sm font-medium text-foreground">Message *</label>
+                <textarea
+                    required
+                    className="w-full px-4 py-3 rounded-lg border border-gray-200 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all h-32 resize-none"
+                    placeholder="I'm interested in..."
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                />
+            </div>
+
+            <Button
+                type="submit"
+                size="lg"
+                fullWidth
+                className="px-8 h-12 text-base font-medium rounded-full"
+            >
+                Send Email
+            </Button>
+        </form>
+    );
+}
+

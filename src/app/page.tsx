@@ -359,73 +359,7 @@ export default function Home() {
         </motion.div>
       </Section>
 
-      {/* SECTION 5: Care Tools That Are Innovative - Matching Inspiration */}
-      <Section className="bg-white">
-        <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            {/* Left: Text Content */}
-            <div>
-              <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
-                Innovative Care
-              </span>
-              <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4 tracking-tight">
-                Care Tools That Are Innovative
-              </h2>
-              <p className="text-slate-600 leading-relaxed mb-8 text-base md:text-lg max-w-xl">
-                Feel free to customize this paragraph to better fit your brand messaging, values, and specific offerings. Ensure that the language you use.
-              </p>
 
-              {/* Features with Checkmarks */}
-              <div className="space-y-6 mb-8">
-                {[
-                  {
-                    title: "Healthcare Facility",
-                    desc: "We're committed to leveraging the latest innovations in medical technology."
-                  },
-                  {
-                    title: "Medical Devices",
-                    desc: "Our patients with the highest standard of care. Our state-of-the-art facility is equipped."
-                  },
-                  {
-                    title: "Advanced Technologies",
-                    desc: "From advanced imaging technology such as MRI and CT scanners to precision surgical tools."
-                  },
-                ].map((item, i) => (
-                  <div key={i} className="flex items-start gap-4">
-                    <div className="w-6 h-6 rounded-full bg-green-500 flex items-center justify-center shrink-0 mt-0.5">
-                      <svg className="w-4 h-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
-                      </svg>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-slate-900 mb-1">{item.title}</h4>
-                      <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              <Link href="/contact" className="w-full sm:w-auto inline-block">
-                <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white px-8 h-12 text-base font-medium shadow-lg shadow-blue-500/20 rounded-full w-full sm:w-auto">
-                  Learn More
-                </Button>
-              </Link>
-            </div>
-
-            {/* Right: Image or Visual Element */}
-            <div className="relative">
-              <div className="aspect-square rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                <Image
-                  src="/positive.webp"
-                  alt="Innovative Healthcare Tools"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </Section>
 
       {/* SECTION 6: How It Works - Step by Step */}
       <Section className="bg-slate-50">
