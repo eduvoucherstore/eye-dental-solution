@@ -62,14 +62,7 @@ export const Footer = () => {
                     </div>
 
                     {/* Company */}
-                    <div className="lg:col-span-1">
-                        <h4 className="font-heading font-bold text-white text-lg mb-6">Company</h4>
-                        <ul className="space-y-4">
-                            <li>
-                                <Link href="/about" className="text-slate-400 hover:text-blue-400 font-medium transition-colors">About Us</Link>
-                            </li>
-                        </ul>
-                    </div>
+
 
                     {/* Contact - Better styled */}
                     <div className="lg:col-span-1">

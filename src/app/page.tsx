@@ -413,48 +413,107 @@ export default function Home() {
         </div>
       </Section>
 
-      {/* SECTION 7: Work With a Variety of People / Trusted Professionals - Matching Inspiration */}
+      {/* SECTION 7: Our Team / Doctors */}
       <Section className="bg-white">
         <div className="max-w-screen-2xl mx-auto px-4 sm:px-6">
-          <div className="mb-12">
+          <div className="text-center mb-12">
             <span className="inline-flex items-center text-blue-600 font-bold tracking-wider uppercase text-xs mb-4 px-3 py-1 rounded-full bg-blue-50 border border-blue-100">
-              Our Community
+              Our Network
             </span>
             <h2 className="text-3xl lg:text-4xl font-heading font-bold text-slate-900 mb-4 tracking-tight">
-              Work With a Variety of People
+              Trusted Medical Professionals
             </h2>
-            <p className="text-slate-600 leading-relaxed max-w-2xl text-base md:text-lg">
-              We're a 100% remote team spread all across the world. Join us! Ensure that the language you use.
+            <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto text-base md:text-lg">
+              Meet our dedicated team of specialists committed to providing the highest standard of care.
             </p>
           </div>
 
-          {/* Professional Profiles Grid */}
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 mb-12">
+          {/* Desktop Grid */}
+          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
-              { name: "Dr. Sarah Mensah", specialty: "Ophthalmology", image: "/portrait-woman-working-healthcare-system-as-pediatrician.webp" },
-              { name: "Dr. Kwame Asante", specialty: "Optometry", image: "/positive.webp" },
-              { name: "Dr. Ama Osei", specialty: "Dentistry", image: "/portrait-african-american-nurse-using-laptop-white-desk.webp" },
-              { name: "Dr. Kofi Adjei", specialty: "Oral Surgery", image: "/positive.webp" },
-            ].map((profile, i) => (
-              <div key={i} className="text-center">
-                <div className="relative w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden border-4 border-white shadow-lg">
+              {
+                name: "Dr. Abraham GAITU",
+                role: "Optometrist",
+                facility: "SALARIA EYEMED AND OPTICAL SUPPLIERS",
+                image: "/Doc1.jpeg"
+              },
+              {
+                name: "Dr. Aihoon Fiifi Samuel",
+                role: "Clinical Optometrist",
+                facility: "Anidaso Health Center",
+                image: "/DOCTOR (7).webp"
+              }
+            ].map((doc, i) => (
+              <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="relative h-[350px] bg-slate-50">
                   <Image
-                    src={profile.image}
-                    alt={profile.name}
+                    src={doc.image}
+                    alt={doc.name}
                     fill
-                    className="object-cover"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
+                  {/* Subtle overlay for image contrast if needed, but clean is better */}
                 </div>
-                <h4 className="font-bold text-slate-900 mb-1">{profile.name}</h4>
-                <p className="text-sm text-slate-600">{profile.specialty}</p>
+
+                <div className="p-8">
+                  {doc.facility && (
+                    <div className="inline-block px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-xs font-bold uppercase tracking-wider mb-4 border border-blue-100">
+                      {doc.facility}
+                    </div>
+                  )}
+                  <h3 className="text-2xl font-bold text-slate-900 mb-2">{doc.name}</h3>
+                  <p className="text-slate-500 font-medium text-lg border-t border-slate-100 pt-3 mt-1 inline-block w-full">
+                    {doc.role}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
 
-          <div className="hidden" />
+          {/* Mobile Carousel */}
+          <div className="block md:hidden">
+            <AutoScrollCarousel>
+              {[
+                {
+                  name: "Dr. Abraham GAITU",
+                  role: "Optometrist",
+                  facility: "SALARIA EYEMED AND OPTICAL SUPPLIERS",
+                  image: "/Doc1.jpeg"
+                },
+                {
+                  name: "Dr. Aihoon Fiifi Samuel",
+                  role: "Clinical Optometrist",
+                  facility: "Anidaso Health Center",
+                  image: "/DOCTOR (7).webp"
+                }
+              ].map((doc, i) => (
+                <div key={i} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md w-[85vw] sm:w-[350px] shrink-0 mx-2 mb-4">
+                  <div className="relative h-[300px] bg-slate-50">
+                    <Image
+                      src={doc.image}
+                      alt={doc.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+
+                  <div className="p-6">
+                    {doc.facility && (
+                      <div className="inline-block px-2.5 py-1 rounded-full bg-blue-50 text-blue-600 text-[10px] font-bold uppercase tracking-wider mb-3 border border-blue-100">
+                        {doc.facility}
+                      </div>
+                    )}
+                    <h3 className="text-xl font-bold text-slate-900 mb-1">{doc.name}</h3>
+                    <p className="text-slate-500 font-medium text-sm border-t border-slate-100 pt-2 mt-1">
+                      {doc.role}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </AutoScrollCarousel>
+          </div>
         </div>
       </Section>
-
 
 
       {/* SECTION 10: Final CTA */}
