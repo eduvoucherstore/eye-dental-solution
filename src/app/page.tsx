@@ -429,11 +429,11 @@ export default function Home() {
           </div>
 
           {/* Desktop Grid */}
-          <div className="hidden md:grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div className="hidden md:grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {[
               {
                 name: "Dr. Abraham GAITU",
-                role: "Optometrist",
+                role: "CEO/Optometrist",
                 facility: "SALARIA EYEMED AND OPTICAL SUPPLIERS",
                 image: "/Doc1.jpeg"
               },
@@ -442,6 +442,12 @@ export default function Home() {
                 role: "Clinical Optometrist",
                 facility: "Anidaso Health Center",
                 image: "/DOCTOR (7).webp"
+              },
+              {
+                name: "Dr. Isaac Owusu",
+                role: "CEO/Optometrist",
+                facility: "Imprexions Eye Care",
+                image: "/Doc4.jpeg"
               }
             ].map((doc, i) => (
               <div key={i} className="group bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -476,7 +482,7 @@ export default function Home() {
               {[
                 {
                   name: "Dr. Abraham GAITU",
-                  role: "Optometrist",
+                  role: "CEO/Optometrist",
                   facility: "SALARIA EYEMED AND OPTICAL SUPPLIERS",
                   image: "/Doc1.jpeg"
                 },
@@ -485,6 +491,12 @@ export default function Home() {
                   role: "Clinical Optometrist",
                   facility: "Anidaso Health Center",
                   image: "/DOCTOR (7).webp"
+                },
+                {
+                  name: "Dr. Isaac Owusu",
+                  role: "CEO/Optometrist",
+                  facility: "Imprexions Eye Care",
+                  image: "/Doc4.jpeg"
                 }
               ].map((doc, i) => (
                 <div key={i} className="bg-white rounded-3xl overflow-hidden border border-slate-100 shadow-md w-[85vw] sm:w-[350px] shrink-0 mx-2 mb-4">
