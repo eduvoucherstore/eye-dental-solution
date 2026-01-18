@@ -1,11 +1,20 @@
-"use client";
-
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { Button } from "@/components/ui/Button";
 import { Section } from "@/components/ui/Section";
 import Link from "next/link";
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Eye Care Software | Cloudify",
+    description: "The #1 Eye Care Software for optical clinics. Manage patients, inventory, and billing with our cloud-based solution.",
+    keywords: ["eye care software", "optical practice management", "optometry software", "ophthalmology emr"],
+    openGraph: {
+        title: "Eye Care Software | Cloudify",
+        description: "The #1 Eye Care Software for optical clinics. Manage patients, inventory, and billing.",
+    }
+};
 
 const pricingIcons = {
     badge: (
