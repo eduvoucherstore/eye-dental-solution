@@ -128,14 +128,14 @@ const eyeCareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "Cloudify Eye Care Software",
-    url: "https://cloudify.care/eye-care",
+    url: "https://www.cloudifycare.com/eye-care",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description: "Eye care software for optical clinics. Manage patients, inventory, scheduling, and billing with Cloudify.",
     brand: {
         "@type": "Organization",
         name: "Cloudify",
-        url: "https://cloudify.care",
+        url: "https://www.cloudifycare.com",
     },
     aggregateRating: {
         "@type": "AggregateRating",
@@ -149,7 +149,7 @@ const eyeCareSchema = {
         price: "250",
         priceCurrency: "GHS",
         priceValidUntil: "2025-12-31",
-        url: "https://cloudify.care/eye-care#pricing"
+        url: "https://www.cloudifycare.com/eye-care#pricing"
     }
 };
 

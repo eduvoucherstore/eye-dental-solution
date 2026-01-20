@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/"],
       },
     ],
-    sitemap: "https://cloudify.care/sitemap.xml",
-    host: "https://cloudify.care",
+    sitemap: "https://www.cloudifycare.com/sitemap.xml",
+    host: "https://www.cloudifycare.com",
   };
 }

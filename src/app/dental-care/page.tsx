@@ -120,14 +120,14 @@ const dentalCareSchema = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
     name: "Cloudify Dental Care Software",
-    url: "https://cloudify.care/dental-care",
+    url: "https://www.cloudifycare.com/dental-care",
     applicationCategory: "BusinessApplication",
     operatingSystem: "Web",
     description: "Dental care software for clinics. Smart charting, scheduling, and billing built for modern dentistry.",
     brand: {
         "@type": "Organization",
         name: "Cloudify",
-        url: "https://cloudify.care",
+        url: "https://www.cloudifycare.com",
     },
     aggregateRating: {
         "@type": "AggregateRating",
@@ -141,7 +141,7 @@ const dentalCareSchema = {
         price: "250",
         priceCurrency: "GHS",
         priceValidUntil: "2025-12-31",
-        url: "https://cloudify.care/dental-care#pricing"
+        url: "https://www.cloudifycare.com/dental-care#pricing"
     }
 };
 

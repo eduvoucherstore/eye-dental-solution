@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     "telemedicine platform"
   ],
   alternates: {
-    canonical: 'https://cloudify.care',
+    canonical: 'https://www.cloudifycare.com',
   },
   verification: {
     google: "vhygepUrILqCfs7sbmLzzMO0sNTIv--6U4TJA1rKiNs",
@@ -73,11 +73,11 @@ export const metadata: Metadata = {
     ],
   },
   manifest: '/site.webmanifest',
-  metadataBase: new URL('https://cloudify.care'),
+  metadataBase: new URL('https://www.cloudifycare.com'),
   openGraph: {
     title: "Cloudify | Advanced Practice Management Software",
     description: "Streamline your Eye or Dental clinic with Cloudify. AI-powered EMR, Billing, and Scheduling. The #1 Choice for modern healthcare practices.",
-    url: 'https://cloudify.care',
+    url: 'https://www.cloudifycare.com',
     siteName: 'Cloudify',
     images: [
       {

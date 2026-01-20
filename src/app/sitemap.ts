@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const baseUrl = "https://cloudify.care";
+const baseUrl = "https://www.cloudifycare.com";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
