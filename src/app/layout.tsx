@@ -15,9 +15,47 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "Cloudify | Advanced Eye & Dental Practice Management Software",
-  description: "Comprehensive practice management solution for Eye and Dental clinics. Streamline your operations with our AI-powered, secure, and cloud-based platform.",
-  keywords: ["eye care software", "dental care software", "practice management system", "clinic software", "EMR", "EHR", "optical software", "dental charting", "Cloudify"],
+  title: {
+    default: "Cloudify | #1 Practice Management Software for Eye & Dental Clinics",
+    template: "%s | Cloudify"
+  },
+  description: "Cloud-based practice management software for Eye Clinics and Dental Practices. Features include EMR, scheduling, billing, inventory, and AI-powered insights. Built for healthcare providers in Ghana and Africa.",
+  keywords: [
+    "eye care software",
+    "dental care software",
+    "practice management system",
+    "clinic software",
+    "hospital management system",
+    "EMR Ghana",
+    "EHR Africa",
+    "optical software",
+    "dental charting software",
+    "Cloudify",
+    "medical billing software",
+    "inventory management for clinics",
+    "patient appointment scheduling",
+    "telemedicine platform"
+  ],
+  alternates: {
+    canonical: 'https://cloudify.care',
+  },
+  verification: {
+    google: "vhygepUrILqCfs7sbmLzzMO0sNTIv--6U4TJA1rKiNs",
+    other: {
+      "msvalidate.01": "[YOUR_BING_VERIFICATION_TOKEN]"
+    }
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-image-preview": "large",
+      "max-snippet": -1,
+      "max-video-preview": -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
@@ -31,8 +69,8 @@ export const metadata: Metadata = {
   manifest: '/site.webmanifest',
   metadataBase: new URL('https://cloudify.care'),
   openGraph: {
-    title: "Cloudify | Advanced Eye & Dental Practice Management Software",
-    description: "Comprehensive practice management solution for Eye and Dental clinics. Streamline your operations with our AI-powered, secure, and cloud-based platform.",
+    title: "Cloudify | Advanced Practice Management Software",
+    description: "Streamline your Eye or Dental clinic with Cloudify. AI-powered EMR, Billing, and Scheduling. The #1 Choice for modern healthcare practices.",
     url: 'https://cloudify.care',
     siteName: 'Cloudify',
     images: [
@@ -40,7 +78,7 @@ export const metadata: Metadata = {
         url: '/eye-care-dashboard.png',
         width: 1200,
         height: 630,
-        alt: 'Cloudify Dashboard',
+        alt: 'Cloudify Dashboard - Eye & Dental Care',
       },
     ],
     locale: 'en_US',
@@ -48,11 +86,33 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: "Cloudify | Advanced Eye & Dental Practice Management Software",
-    description: "Comprehensive practice management solution for Eye and Dental clinics.",
+    title: "Cloudify | Advanced Practice Management Software",
+    description: "Streamline your Eye or Dental clinic with Cloudify. AI-powered EMR, Billing, and Scheduling.",
     images: ['/eye-care-dashboard.png'],
   },
 };
+
+const structuredData = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Cloudify",
+    url: "https://cloudify.care",
+    logo: "https://cloudify.care/favicon-32x32.png",
+    sameAs: [],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Cloudify",
+    url: "https://cloudify.care",
+    potentialAction: {
+      "@type": "SearchAction",
+      target: "https://cloudify.care/?q={search_term_string}",
+      "query-input": "required name=search_term_string",
+    },
+  },
+];
 
 export default function RootLayout({
   children,
@@ -64,6 +124,11 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${outfit.variable} antialiased flex flex-col min-h-screen`}
       >
+        <script
+          type="application/ld+json"
+          // JSON-LD should be a single line to avoid hydration diff.
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        />
         <div className="flex-grow">
           {children}
         </div>

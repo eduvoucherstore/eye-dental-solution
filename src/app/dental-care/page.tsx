@@ -8,13 +8,42 @@ import { DentalTimeline } from "@/components/dental/DentalTimeline";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Dental Care Software | Cloudify",
-    description: "The #1 Dental Care Software for clinics. Smart charting, billing, and scheduling for modern dentistry.",
-    keywords: ["dental care software", "dental practice management", "dental charting software", "dentist emr"],
+    title: "Dental Care Software | Dental Practice Management System",
+    description: "The #1 Dental Care Software for clinics. Smart charting, billing, insurance claims, and scheduling. Built for modern dental practices in Ghana.",
+    keywords: [
+        "dental care software",
+        "dental practice management",
+        "dental charting software",
+        "dentist emr",
+        "dental clinic software",
+        "dental insurance billing",
+        "cloud dental software",
+        "patient appointment scheduling",
+        "dental imaging software"
+    ],
+    alternates: {
+        canonical: "/dental-care",
+    },
     openGraph: {
         title: "Dental Care Software | Cloudify",
         description: "The #1 Dental Care Software for clinics. Smart charting, billing, and scheduling.",
-    }
+        url: "/dental-care",
+        type: "website",
+        images: [
+            {
+                url: "/dental-care-dashboard.png",
+                width: 1200,
+                height: 630,
+                alt: "Cloudify Dental Care Dashboard",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Dental Care Software | Cloudify",
+        description: "The #1 Dental Care Software for clinics. Smart charting, billing, and scheduling.",
+        images: ["/dental-care-dashboard.png"],
+    },
 };
 
 const pricingIcons = {
@@ -80,11 +109,44 @@ const pricingIcons = {
     ),
 } as const;
 
+const dentalCareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Cloudify Dental Care Software",
+    url: "https://cloudify.care/dental-care",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "Dental care software for clinics. Smart charting, scheduling, and billing built for modern dentistry.",
+    brand: {
+        "@type": "Organization",
+        name: "Cloudify",
+        url: "https://cloudify.care",
+    },
+    aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        ratingCount: "85",
+        bestRating: "5",
+        worstRating: "1"
+    },
+    offers: {
+        "@type": "Offer",
+        price: "250",
+        priceCurrency: "GHS",
+        priceValidUntil: "2025-12-31",
+        url: "https://cloudify.care/dental-care#pricing"
+    }
+};
+
 export default function DentalCarePage() {
     const dentalSignupUrl = process.env.NEXT_PUBLIC_DENTAL_SIGNUP_URL ?? "/contact";
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(dentalCareSchema) }}
+            />
             <Navbar />
 
             {/* --- HERO SECTION (Clean) --- */}

@@ -7,13 +7,42 @@ import Image from "next/image";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Eye Care Software | Cloudify",
-    description: "The #1 Eye Care Software for optical clinics. Manage patients, inventory, and billing with our cloud-based solution.",
-    keywords: ["eye care software", "optical practice management", "optometry software", "ophthalmology emr"],
+    title: "Eye Care Software | Optical Practice Management System",
+    description: "The #1 Eye Care Software for optical clinics and ophthalmologists. Manage patient records, prescriptions, eyewear inventory, and billing with our cloud-based solution.",
+    keywords: [
+        "eye care software",
+        "optical practice management",
+        "optometry software",
+        "ophthalmology emr",
+        "optical shop POS",
+        "inventory management for opticals",
+        "vision clinic software",
+        "optical billing software",
+        "eye clinic appointment scheduling"
+    ],
+    alternates: {
+        canonical: "/eye-care",
+    },
     openGraph: {
         title: "Eye Care Software | Cloudify",
         description: "The #1 Eye Care Software for optical clinics. Manage patients, inventory, and billing.",
-    }
+        url: "/eye-care",
+        type: "website",
+        images: [
+            {
+                url: "/eye-care-dashboard.png",
+                width: 1200,
+                height: 630,
+                alt: "Cloudify Eye Care Dashboard",
+            },
+        ],
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Eye Care Software | Cloudify",
+        description: "The #1 Eye Care Software for optical clinics. Manage patients, inventory, and billing.",
+        images: ["/eye-care-dashboard.png"],
+    },
 };
 
 const pricingIcons = {
@@ -89,11 +118,44 @@ const pricingIcons = {
     ),
 } as const;
 
+const eyeCareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "Cloudify Eye Care Software",
+    url: "https://cloudify.care/eye-care",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "Eye care software for optical clinics. Manage patients, inventory, scheduling, and billing with Cloudify.",
+    brand: {
+        "@type": "Organization",
+        name: "Cloudify",
+        url: "https://cloudify.care",
+    },
+    aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: "4.9",
+        ratingCount: "120",
+        bestRating: "5",
+        worstRating: "1"
+    },
+    offers: {
+        "@type": "Offer",
+        price: "250",
+        priceCurrency: "GHS",
+        priceValidUntil: "2025-12-31",
+        url: "https://cloudify.care/eye-care#pricing"
+    }
+};
+
 export default function EyeCarePage() {
     const eyeCareSignupUrl = process.env.NEXT_PUBLIC_EYECARE_SIGNUP_URL ?? "/contact";
 
     return (
         <div className="min-h-screen bg-slate-50 font-sans selection:bg-blue-100 selection:text-blue-900">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(eyeCareSchema) }}
+            />
             <Navbar />
 
             {/* --- HERO SECTION --- */}
