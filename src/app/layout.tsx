@@ -23,6 +23,12 @@ export const metadata: Metadata = {
   keywords: [
     "eye care software",
     "dental care software",
+    "eye care solution",
+    "dental care solution",
+    "AI powered practice management",
+    "AI healthcare software",
+    "smart healthcare platform",
+    "comprehensive clinic solution",
     "practice management system",
     "clinic software",
     "hospital management system",

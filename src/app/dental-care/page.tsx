@@ -12,6 +12,13 @@ export const metadata: Metadata = {
     description: "The #1 Dental Care Software for clinics. Smart charting, billing, insurance claims, and scheduling. Built for modern dental practices in Ghana.",
     keywords: [
         "dental care software",
+        "dental care solution",
+        "AI powered dental software",
+        "smart dental care solution",
+        "comprehensive dental clinic management",
+        "digital dentistry solution",
+        "AI dental charting",
+        "smart practice solution",
         "dental practice management",
         "dental charting software",
         "dentist emr",

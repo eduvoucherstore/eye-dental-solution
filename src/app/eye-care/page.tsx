@@ -11,6 +11,12 @@ export const metadata: Metadata = {
     description: "The #1 Eye Care Software for optical clinics and ophthalmologists. Manage patient records, prescriptions, eyewear inventory, and billing with our cloud-based solution.",
     keywords: [
         "eye care software",
+        "eye care solution",
+        "AI powered optical software",
+        "smart eye care solution",
+        "comprehensive eye clinic management",
+        "digital optometry solution",
+        "AI diagnostic tools",
         "optical practice management",
         "optometry software",
         "ophthalmology emr",
